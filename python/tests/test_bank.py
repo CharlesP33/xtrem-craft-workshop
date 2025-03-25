@@ -23,5 +23,5 @@ class TestBank:
         bank: Bank = Bank.create(Currency.EUR, Currency.USD, 1.2)
         assert bank.convert(10, Currency.EUR, Currency.USD) == 12
 
-        bank.addEchangeRate(Currency.EUR, Currency.USD, 1.3)
+        bank.add_echange_rate(Currency.EUR, Currency.USD, 1.3)
         assert bank.convert(10, Currency.EUR, Currency.USD) == 13
