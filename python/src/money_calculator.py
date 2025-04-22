@@ -12,4 +12,4 @@ class MoneyCalculator:
     
     @staticmethod
     def divide(amount: float, currency: Currency, value: int) -> float:
-        return amount / value
+        return amount / value   

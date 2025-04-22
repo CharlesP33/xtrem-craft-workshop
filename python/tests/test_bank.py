@@ -6,8 +6,8 @@ from python.src.currency import Currency
 from python.src.missing_exchange_rate_error import MissingExchangeRateError
 
 
-class TestBank:
-    def test_convert_euro_to_usd_returns_float(self):
+class TestCurrenciesConvert:
+    def test_convert_currencies_when_exchange_rate_exists_returns_convert_value(self):
         #Arrange
         bank: Bank = Bank.create(Currency.EUR, Currency.USD, 1.2)
         #Act
@@ -15,7 +15,7 @@ class TestBank:
         #Assert
         assert result == 12
 
-    def test_convert_euro_to_usd_returns_same_value(self):
+    def test_convert_same_currencies_returns_same_value(self):
         #Arrange
         bank: Bank = Bank.create(Currency.EUR, Currency.USD, 1.2)
         #Act
@@ -29,16 +29,13 @@ class TestBank:
         #Act
         with pytest.raises(MissingExchangeRateError) as error:
             bank.convert(10, Currency.EUR, Currency.KRW)
-        #Assert
-        assert str(error.value) == "EUR->KRW"
+            #Assert
+            assert str(error.value) == "EUR->KRW"
 
-    def test_convert_with_different_exchange_rate_returns_different_floats(self):
+    def test_convert_with_different_exchange_rate_returns_convert_value(self):
         #Arrange
         bank: Bank = Bank.create(Currency.EUR, Currency.USD, 1.2)
         #Act
-        result1 = bank.convert(10, Currency.EUR, Currency.USD)
         bank.add_echange_rate(Currency.EUR, Currency.USD, 1.3)
-        result2 = bank.convert(10, Currency.EUR, Currency.USD)
         #Assert
-        assert result1 == 12
-        assert result2 == 13
+        assert 13 == bank.convert(10, Currency.EUR, Currency.USD)
