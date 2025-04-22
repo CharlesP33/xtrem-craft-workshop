@@ -5,10 +5,14 @@
 
 ```markdown
 ## Titre de l'US (post-it jaunes)
+Estimer un portefeuille dans une devise
 
 > Question (post-it rouge)
 
 ### Règle Métier (post-it bleu)
+Si il y a qu'une seul devise alors juste faire la somme
+Pour chacune des devices les convertires en la devise cible
+Si la devise n'existe pas alors envoyer une erreur
 
 Exemple: (post-it vert)
 
