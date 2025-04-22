@@ -6,7 +6,7 @@ from python.src.currency import Currency
 from python.src.missing_exchange_rate_error import MissingExchangeRateError
 
 
-class TestCurrenciesConvert:
+class TestConvertCurrency:
     def test_convert_currencies_when_exchange_rate_exists_returns_convert_value(self):
         #Arrange
         bank: Bank = Bank.create(Currency.EUR, Currency.USD, 1.2)

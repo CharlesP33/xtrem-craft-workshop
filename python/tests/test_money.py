@@ -1,7 +1,7 @@
 from python.src.currency import Currency
 from python.src.money_calculator import MoneyCalculator
 
-class TestCurrenciesOperation:
+class TestMonetaryOperations:
     def test_add_in_usd_returns_float(self): 
         #Arrange
         
