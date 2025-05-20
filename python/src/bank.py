@@ -1,4 +1,6 @@
 from typing import Dict
+
+from python.src.money import Money
 from .currency import Currency
 from .missing_exchange_rate_error import MissingExchangeRateError
 
@@ -27,6 +29,15 @@ class Bank:
             amount = amount * self._exchange_rate[f'{src.value}->{target.value}']
         
         return amount
+    
+    def new_convert(self, money: Money, target: Currency) -> Money:
+        if self.can_convert(money.currency, target):
+            raise MissingExchangeRateError(money.currency, target)
+        
+        if not self.is_same_currency(money.currency, target):
+            money.amount = money.amount * self._exchange_rate[f'{money.currency.value}->{target.value}']
+        
+        return Money(money.amount, target)
     
     def can_convert(self, src: Currency, target: Currency) -> bool:
         return not (self.is_same_currency(src, target) or f'{src.value}->{target.value}' in self._exchange_rate)
