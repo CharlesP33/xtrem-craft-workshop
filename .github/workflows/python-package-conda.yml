@@ -36,6 +36,11 @@ jobs:
       run: |
         conda install pytest
         pytest --maxfail=1 --exitfirst
+      
+    - name: Audit dependencies age with libyear
+      run: |
+        libyear python/src > libyear_report.txt
+        cat libyear_report.txt
 
     - name: Mutation Testing (non-blocking)
       if: github.ref == 'refs/heads/master' || github.event_name == 'pull_request'
