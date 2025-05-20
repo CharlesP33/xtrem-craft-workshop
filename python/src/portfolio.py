@@ -22,5 +22,5 @@ class Portfolio:
     def evaluate(self, bank: Bank, currency: Currency) -> float:
         total = 0
         for c in self._amounts.keys():
-            total += bank.convert(self._amounts[c], c, currency)
+            total += bank.new_convert(Money(self._amounts[c], c), currency).amount
         return total
