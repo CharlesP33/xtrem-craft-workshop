@@ -39,7 +39,7 @@ jobs:
       
     - name: Audit dependencies age with libyear
       run: |
-        libyear -r python/requirements > libyear_report.txt
+        piprot python/requirements.txt > libyear_report.txt
         cat libyear_report.txt
 
     - name: Mutation Testing (non-blocking)
