@@ -1,5 +1,4 @@
 from python.src.currency import Currency
-from python.src.money_calculator import MoneyCalculator
 from python.src.money import Money
 
 class TestMonetaryOperations:
