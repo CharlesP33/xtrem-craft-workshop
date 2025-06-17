@@ -14,7 +14,7 @@ class TestPortfolio:
         money = Money(5, Currency.USD)
 
         portfolio = Portfolio()
-        portfolio.new_add(money)
+        portfolio.add(money)
 
         # act
         evaluation = portfolio.evaluate(bank, Currency.USD)
@@ -28,7 +28,7 @@ class TestPortfolio:
         money = Money(5, Currency.EUR)
 
         portfolio = Portfolio()
-        portfolio.new_add(money)
+        portfolio.add(money)
 
         # act
         evaluation = portfolio.evaluate(bank, Currency.USD)
@@ -42,7 +42,7 @@ class TestPortfolio:
         money = Money(5, Currency.EUR)
 
         portfolio = Portfolio()
-        portfolio.new_add(money)
+        portfolio.add(money)
 
         # act
         with pytest.raises(MissingExchangeRateError) as error:
