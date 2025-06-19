@@ -22,5 +22,5 @@ class BankBuilder:
         bank = Bank.create(self.pivot_currency, currency, self.exchange_rates[currency])
         for cur, rate in self.exchange_rates.items():
             if (cur != currency and isinstance(cur, Currency)):
-                bank.add_echange_rate(self.pivot_currency, cur, rate)
+                bank.add_echange_rate(cur, rate)
         return bank

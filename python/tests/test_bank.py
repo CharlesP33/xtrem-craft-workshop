@@ -46,11 +46,10 @@ class TestConvertCurrency:
         bank: Bank = BankBuilder.aBank().with_pivot_currency(Currency.EUR).with_exchange_rate(1.2, Currency.USD).build()
         money: Money = Money(10, Currency.EUR)
         #Act
-        bank.add_echange_rate(Currency.EUR, Currency.USD, 1.3)
+        bank.add_echange_rate(Currency.USD, 1.3)
         #Assert
         assert 13 == bank.new_convert(money, Currency.USD).amount
 
-    ####
     def test_convert_to_same_currency_without_exchange_rate(self):
         # Arrange
         bank: Bank = BankBuilder.aBank().with_pivot_currency(Currency.EUR).build()
@@ -115,4 +114,4 @@ class TestConvertCurrency:
         # Act / Assert
         with pytest.raises(MissingExchangeRateError) as error:
             bank.new_convert(money, Currency.USD)
-        assert str(error.value) == "EUR->USD"
+        assert str(error.value) == "KRW->USD"
