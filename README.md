@@ -1,9 +1,32 @@
-# Membres
+# Membres S5B
 
 - Clément AUBIER
 - Tristan PETIT
 - Charles PINET
 - Matias ZOCLI
+
+# Appris
+- Pair programming
+- Mutation testing
+- TDD
+- Gherkin
+- Github actions (CI)
+
+# Surpris
+- Ne pas systématiquement documenter ses fonctions (quand cela n'ajoute pas de clarté)
+- Pair programming -> plus rapide que prévu
+- Gherkin / BDD
+- Mob prog -> fonctionne mieux que prévu
+- Tester avant de coder
+
+# Lundi
+- TDD 
+- - Red / Green / Refacto
+- clarifier les règles métier
+- doc plus pertinente
+- CI/CD
+- Mutation - Converture de tests
+
 
 # Xtrem Craft workshop
 
